@@ -14,22 +14,36 @@
 
 void 	premier_sort(Liste *liste_a, Liste *liste_b)
 {
-	Element	*actuel;
+	int	i;
+	int j;
+	Element *actuel;
+	int	petit;
 
-	while (liste_a->premier->next != NULL)
+	i = 0;
+	j = 0;
+	actuel = liste_a->premier->next->nombre;
+	petit = liste_a->premier->nombre;
+	while (liste_a)
 	{
-		pb(liste_a, liste_b);
-	}
-	actuel = liste_b->premier;
-	while (liste_b->premier)
-	{
-		if (liste_a->premier->nombre > liste_b->premier->nombre)
-			pa(liste_a, liste_b);
-		if (liste_a->premier->nombre < liste_b->premier->nombre)
+		while (actuel->nombre != NULL)
 		{
-			pa(liste_a, liste_b);
-			rra(liste_a);
+			if (petit < actuel->next->nombre)
+				actuel = actuel->next;
+				i++;
+			if (petit < actuel->next->nombre)
+			{
+				petit = actuel->nombre;
+				actuel = actuel->next;
+				j = i; 
+				i++;
+			}	 
 		}
-		
+		while (j > - 1)
+		{
+			ra(liste_a);
+			j--;
+		}
+		pa(liste_a, liste_b);
+		i = 0;
+		j = 0;
 	}
-}
