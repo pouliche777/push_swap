@@ -1,36 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   premier_sort.c                                     :+:      :+:    :+:   */
+/*   outils_tri.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slord <slord@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/13 15:50:55 by slord             #+#    #+#             */
-/*   Updated: 2022/06/15 15:40:08 by slord            ###   ########.fr       */
+/*   Created: 2022/06/15 13:04:06 by slord             #+#    #+#             */
+/*   Updated: 2022/06/15 15:25:38 by slord            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void 	premier_sort(Liste *liste_a, Liste *liste_b)
+//fonction qui trouve la position du nombre le plus petit dans une liste
+int	trouver_min(Liste *liste)
 {
-	int	i;
-	int j;
-	Element *actuel;
-	int	petit;
+	int		position_min;
+	int		i;
+	int		min;
+	Element	*actuel;
 
-
-	j = 0;
-	actuel = liste_a->premier->next;
-	petit = liste_a->premier->nombre;
-	while (liste_a)
+	actuel = liste->premier;
+	position_min = 0;
+	min = actuel->nombre;
+	i = 0;
+	while (actuel->next != NULL)
 	{
-		i = trouver_min(liste_a);
-		while (i > 0)
+		i++;
+		if (min > actuel->next->nombre)
 		{
-			ra(liste_a);
-			j--;
+			position_min = i;
+			min = actuel->next->nombre;
 		}
-		pa(liste_a, liste_b);
+		actuel = actuel->next;
 	}
+	return (position_min);
 }

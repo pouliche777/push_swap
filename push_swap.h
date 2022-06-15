@@ -6,7 +6,7 @@
 /*   By: slord <slord@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 13:04:57 by slord             #+#    #+#             */
-/*   Updated: 2022/06/13 16:46:19 by slord            ###   ########.fr       */
+/*   Updated: 2022/06/15 13:23:43 by slord            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,5 @@ void	rrb(Liste *liste_b);
 void	pb(Liste *liste_a, Liste *liste_b);
 void	sb(Liste *liste);
 void    premier_sort(Liste *liste_a, Liste *liste_b);
-
-
-
+int	    trouver_min(Liste *liste);
 #endif
