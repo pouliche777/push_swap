@@ -6,7 +6,7 @@
 /*   By: slord <slord@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 12:12:46 by slord             #+#    #+#             */
-/*   Updated: 2022/06/15 15:39:05 by slord            ###   ########.fr       */
+/*   Updated: 2022/06/16 17:37:00 by slord            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,7 @@ int	main(int argc, char **argv)
 		add_list(liste_a, atoi(argv[argc - 1]));
 		argc--;
 	}
-	printf("%d", trouver_min(liste_a));
-	premier_sort(liste_a, liste_b);
+	premier_sort(liste_a,liste_b);
 	afficherListe(liste_a);
 	afficherListe(liste_b);
 	printf("%d",liste_a->premier->nombre);

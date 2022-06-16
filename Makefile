@@ -1,4 +1,4 @@
-SOURCES = push_swap.c
+SOURCES = push_swap.c operations.c operations_1.c outils_tri.c premier_sort.c chaines_utils.c
 
 OBJS = $(SOURCES:.c=.o)
 
@@ -6,14 +6,11 @@ CC = gcc
 RM = rm -f
 CFLAGS = -Wall -Wextra -Werror
 
-NAME = libpush_swap.a
-
-$(NAME):	$(OBJS)
-					ar rcs $(NAME) $(OBJS)
+NAME = push_swap
 
 all : $(NAME)
-compile: 
-			$(CC) $(CFLAGS) $(SOURCES)
+$(NAME): 
+			$(CC) $(CFLAGS) $(SOURCES) -o $(NAME)
 clean: 
 					$(RM) $(OBJS)
 fclean:		clean

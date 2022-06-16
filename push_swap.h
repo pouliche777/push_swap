@@ -6,7 +6,7 @@
 /*   By: slord <slord@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 13:04:57 by slord             #+#    #+#             */
-/*   Updated: 2022/06/15 13:23:43 by slord            ###   ########.fr       */
+/*   Updated: 2022/06/16 18:10:56 by slord            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,10 @@ void	rrb(Liste *liste_b);
 void	pb(Liste *liste_a, Liste *liste_b);
 void	sb(Liste *liste);
 void    premier_sort(Liste *liste_a, Liste *liste_b);
-int	    trouver_min(Liste *liste);
+int	    trouver_position_min(Liste *liste);
+int     trouver_valeur_min(Liste *liste, int chunk);
+int	    trouver_nombre_chainons(Liste *liste);
+int     trouver_valeur_max(Liste *liste, int chunk);
+int	    trouver_position(Liste *liste, int min_relatif);
+
 #endif
