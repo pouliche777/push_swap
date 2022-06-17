@@ -72,7 +72,7 @@ int trouver_valeur_min(Liste *liste, int chunk)
 	j = trouver_nombre_chainons(liste) - i;
 	while(j > 0)
 	{
-		actuel = liste->premier;
+		actuel = actuel->next;
 		j--;	
 	}
 	while(actuel->next !=NULL)

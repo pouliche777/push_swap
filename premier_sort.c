@@ -25,7 +25,7 @@ void 	premier_sort(Liste *liste_a, Liste *liste_b)
 	g = 0;
 	while (liste_a->premier->next != NULL)
 	{	
-		petit = trouver_valeur_min(liste_a, 10);
+		petit = trouver_valeur_min(liste_a, 22);
 		if (trouver_position(liste_a, petit) <= (trouver_nombre_chainons(liste_a) / 2))
 			j = 1;
 		else 
@@ -42,9 +42,19 @@ void 	premier_sort(Liste *liste_a, Liste *liste_b)
 	}
 	while (i > 0)
 	{
+	
 		gros = trouver_valeur_max(liste_b, 1000);
+		if (trouver_position(liste_b, gros) <= (trouver_nombre_chainons(liste_b) / 2))
+			j = 1;
+		else
+			j = 0;
 		while (liste_b->premier->nombre != gros)
-			rb(liste_b);
+		{
+			if (j == 1)
+				rb(liste_b);
+			if (j == 0)
+				rrb(liste_b);
+		}
 		pa(liste_a,liste_b);
 		i--;
 	}
