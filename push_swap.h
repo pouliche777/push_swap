@@ -6,7 +6,7 @@
 /*   By: slord <slord@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 13:04:57 by slord             #+#    #+#             */
-/*   Updated: 2022/06/21 14:24:28 by slord            ###   ########.fr       */
+/*   Updated: 2022/06/21 19:05:13 by slord            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,9 @@ int     trouver_valeur_max(Liste *liste, int chunk);
 int	    trouver_position(Liste *liste, int min_relatif);
 int	    *trouver_bonne_position(Liste *liste, int nb_a_push);
 int     dernier_liste(Liste *liste);
+int     validation_nombres(int argc, char **argv);
+int     validation_doublon(Liste *liste);
+void 	smaller_sort(Liste *liste_a);
+void 	small_sort(Liste *liste_a, Liste *liste_b);
 
 #endif

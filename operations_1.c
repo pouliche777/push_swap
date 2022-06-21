@@ -6,7 +6,7 @@
 /*   By: slord <slord@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 15:10:33 by slord             #+#    #+#             */
-/*   Updated: 2022/06/16 15:58:26 by slord            ###   ########.fr       */
+/*   Updated: 2022/06/21 16:27:16 by slord            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	sb(Liste *liste)
 void	rb(Liste *liste_b)
 {
 	int	temp;
-       
+
 	if (liste_b->premier == NULL)
 		return ;
 	temp = liste_b->premier->nombre;

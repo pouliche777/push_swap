@@ -6,13 +6,13 @@
 /*   By: slord <slord@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 16:18:23 by slord             #+#    #+#             */
-/*   Updated: 2022/06/01 16:44:33 by slord            ###   ########.fr       */
+/*   Updated: 2022/06/21 16:27:17 by slord            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void sa(Liste *liste)
+void	sa(Liste *liste)
 {
 	int	temp;
 
@@ -37,7 +37,7 @@ void	pb(Liste *liste_a, Liste *liste_b)
 	printf("pb\n");
 }
 
-void ra(Liste *liste_a)
+void	ra(Liste *liste_a)
 {
 	int	temp;
 
@@ -49,7 +49,7 @@ void ra(Liste *liste_a)
 	printf("ra\n");
 }
 
-void rra(Liste *liste_a)
+void	rra(Liste *liste_a)
 {
 	int	temp;
 
@@ -60,7 +60,7 @@ void rra(Liste *liste_a)
 	printf("rra\n");
 }
 
-void ss(Liste *liste_a, Liste *liste_b)
+void	ss(Liste *liste_a, Liste *liste_b)
 {
 	sa(liste_a);
 	sb(liste_b);

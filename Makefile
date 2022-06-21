@@ -1,4 +1,4 @@
-SOURCES = push_swap.c operations.c operations_1.c outils_tri.c premier_sort.c chaines_utils.c
+SOURCES = push_swap.c operations.c operations_1.c outils_tri.c premier_sort.c chaines_utils.c validation.c
 
 OBJS = $(SOURCES:.c=.o)
 
