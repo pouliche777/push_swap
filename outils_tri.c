@@ -6,7 +6,7 @@
 /*   By: slord <slord@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 13:04:06 by slord             #+#    #+#             */
-/*   Updated: 2022/06/16 18:19:49 by slord            ###   ########.fr       */
+/*   Updated: 2022/06/20 19:53:47 by slord            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	trouver_position(Liste *liste, int min_relatif)
 
 	i = 0;
 	actuel = liste->premier;
-	while (actuel->nombre != min_relatif)
+	while (actuel->nombre != min_relatif && actuel->next != NULL)
 	{
 		actuel = actuel->next;
 		i++;
@@ -70,7 +70,7 @@ int trouver_valeur_min(Liste *liste, int chunk)
 	}
 	actuel = liste->premier;
 	j = trouver_nombre_chainons(liste) - i;
-	while(j > 0)
+	while(j > 0 && actuel->next != NULL)
 	{
 		actuel = actuel->next;
 		j--;	
@@ -108,6 +108,10 @@ int trouver_valeur_max(Liste *liste, int chunk)
 	int j;
 
 	i = chunk;
+	if (!liste->premier->nombre)
+		return (0);
+	if (liste->premier->next == NULL) 
+		return (liste->premier->nombre);
 	actuel = liste->premier;
 	valeur_max = actuel->nombre;
 	while(actuel->next !=NULL && chunk != 0)
@@ -131,4 +135,25 @@ int trouver_valeur_max(Liste *liste, int chunk)
 		actuel =actuel->next;
 	}
 	return (valeur_max);
+}
+int	trouver_bonne_position(Liste *liste, int nb_a_push)
+{
+	int		bonne_position;
+	Element	*actuel;
+
+	actuel = liste->premier;
+	if (actuel->next == NULL)
+		return (0);
+	bonne_position = 0;
+
+	while (actuel->next != NULL)
+	{
+		if (actuel->nombre < nb_a_push && actuel->next->nombre > nb_a_push)
+		{
+			return (bonne_position);
+		}
+		actuel = actuel->next;
+		bonne_position++;
+	}
+	return (bonne_position);
 }
