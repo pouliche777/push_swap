@@ -6,7 +6,7 @@
 /*   By: slord <slord@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 13:04:57 by slord             #+#    #+#             */
-/*   Updated: 2022/06/20 15:28:58 by slord            ###   ########.fr       */
+/*   Updated: 2022/06/21 14:24:28 by slord            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ int     trouver_valeur_min(Liste *liste, int chunk);
 int	    trouver_nombre_chainons(Liste *liste);
 int     trouver_valeur_max(Liste *liste, int chunk);
 int	    trouver_position(Liste *liste, int min_relatif);
-int	    trouver_bonne_position(Liste *liste, int nb_a_push);
+int	    *trouver_bonne_position(Liste *liste, int nb_a_push);
+int     dernier_liste(Liste *liste);
 
 #endif

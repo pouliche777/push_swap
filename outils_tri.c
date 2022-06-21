@@ -6,7 +6,7 @@
 /*   By: slord <slord@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 13:04:06 by slord             #+#    #+#             */
-/*   Updated: 2022/06/20 19:53:47 by slord            ###   ########.fr       */
+/*   Updated: 2022/06/21 14:53:44 by slord            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,24 +136,65 @@ int trouver_valeur_max(Liste *liste, int chunk)
 	}
 	return (valeur_max);
 }
-int	trouver_bonne_position(Liste *liste, int nb_a_push)
+int	*trouver_bonne_position(Liste *liste, int nb_a_push)
 {
 	int		bonne_position;
+	int 	*retour;
 	Element	*actuel;
-
+	retour = malloc(sizeof(int) * 2);
 	actuel = liste->premier;
-	if (actuel->next == NULL)
-		return (0);
 	bonne_position = 0;
-
+	retour[0] = bonne_position;
+	retour[1] = liste->premier->nombre;
+	if (liste->premier->next == NULL)
+		return (retour);
+	if (liste->premier->nombre > nb_a_push && dernier_liste(liste) < nb_a_push)
+		return (retour);
+	if (nb_a_push < trouver_valeur_min(liste, 1000))
+		while (actuel)
+		{
+			if (actuel->nombre == trouver_valeur_min(liste, 1000))
+			{
+				retour[0] = bonne_position;
+				retour[1] = actuel->nombre;
+				return (retour);
+			}
+			actuel = actuel->next;
+			bonne_position++;
+		}
+	if (nb_a_push > trouver_valeur_max(liste, 1000))
+		while (actuel)
+		{
+			if (actuel->nombre == trouver_valeur_max(liste, 1000))
+			{
+				retour[0] = bonne_position;
+				retour[1] = actuel->nombre;
+				return (retour);
+			}
+			actuel = actuel->next;
+			bonne_position++;
+		}
 	while (actuel->next != NULL)
 	{
 		if (actuel->nombre < nb_a_push && actuel->next->nombre > nb_a_push)
 		{
-			return (bonne_position);
+			retour[0] = bonne_position;
+			retour[1] = actuel->next->nombre;
+			return (retour);
 		}
 		actuel = actuel->next;
 		bonne_position++;
 	}
-	return (bonne_position);
+	return (retour);
+}
+int dernier_liste(Liste *liste)
+{
+	Element *actuel;
+
+	actuel = liste->premier;
+	while (actuel->next != NULL)
+	{
+		actuel = actuel->next;
+	}
+	return (actuel->nombre);
 }
