@@ -1,18 +1,44 @@
-SOURCES = push_swap.c operations.c operations_1.c outils_tri.c premier_sort.c chaines_utils.c validation.c
+S = src/
+O = obj/
+L = libft/
 
-OBJS = $(SOURCES:.c=.o)
+SOURCES = $Spush_swap.c $Soperations.c $Soperations_1.c $Soutils_tri.c $Ssort.c $Schaines_utils.c $Svalidation.c $Sutils.c $Sutils_1.c
 
+OBJS = $(SOURCES:$S%=$O%.o)
+
+LIB = libft/libft.a
 CC = gcc
-RM = rm -f
-CFLAGS = -Wall -Wextra -Werror
+RM = rm -rf
+CFLAGS = -Wall -Wextra -Werror -g
 
 NAME = push_swap
 
-all : $(NAME)
-$(NAME): 
-			$(CC) $(CFLAGS) $(SOURCES) -o $(NAME)
+all: $(NAME)
+
+$O:
+	@mkdir $@
+
+$(OBJS): | $O
+
+$(OBJS): $O%.o: $S%
+	@$(CC) $(CFLAGS) -c $< -o $@
+
+$(NAME): $(OBJS)
+	@make -C $(L) --silent
+	@$(CC) $(CFLAGS) $(LIB) $^ -o $@
+	@echo "\033[0;32m Compilation complétée"
+
 clean: 
-					$(RM) $(OBJS)
-fclean:		clean
-					$(RM) $(NAME)
-re:			fclean $(NAME)
+		@$(RM) $(OBJS)
+		@$(RM) $O
+		@make clean -C $(L) --silent
+		@echo "\033[0;31m Fichiers .o supprimes"
+
+fclean:	clean
+	@$(RM) $(NAME)
+	@make fclean -C $(L) --silent
+	@echo "\033[0;31m executable supprime"
+
+
+re:	fclean $(NAME)
+	@make re -C $(L) --silent
